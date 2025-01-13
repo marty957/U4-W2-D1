@@ -1,10 +1,15 @@
 package esercizio1;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Scanner;
+
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+    private static final Logger logger = (Logger) LoggerFactory.getLogger(Main.class);
     public static void main(String[] args)  {
         Esercizio1 es1 = new Esercizio1();
         Scanner sc = new Scanner(System.in);
@@ -19,13 +24,13 @@ public class Main {
             posizione = Integer.parseInt(sc.nextLine());
 
             if(posizione==0){
-                System.out.println("programma terminato con successo");
+                logger.info("programma terminato con successo");
                 break;
             } else if (posizione>5) {
                 try{
                    throw new Exception("numero inserito non valido");
                 } catch (Exception e){
-                    System.out.println("posizone non valida");
+                    logger.error("posizone non valida");
                     break;
                 }
 
@@ -36,12 +41,13 @@ public class Main {
 
              numero=Integer.parseInt(sc.nextLine());
              if(numero==0){
+                 logger.info("programma terminato con successo");
                  break;
              } else if (numero>10) {
                  try {
                      throw new Exception("numero inserito non valido" );
                  } catch (Exception e) {
-                     System.out.println("numero inserito non valido");
+                     logger.error("numero inserito non valido");
                      break;
                  }
 

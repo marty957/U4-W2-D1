@@ -2,10 +2,15 @@ package esercizio2;
 
 import java.util.Scanner;
 
+import esercizio1.Main;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Contatore {
 
-
+    private static final Logger logger = (Logger) LoggerFactory.getLogger(Main.class);
     public static void main(String[] args)  {
+
         Scanner sc= new Scanner(System.in);
         Contatore auto=new Contatore();
         System.out.println("Digita il numero di km percorsi: ");
@@ -17,7 +22,7 @@ public class Contatore {
              try {
                  Contatore.consumi(km, litri);
              }catch (Exception e){
-                 System.out.println("I litri consumati non possono essere zero");
+                logger.error("I litri consumati non possono essere zero");
 
 
          }
